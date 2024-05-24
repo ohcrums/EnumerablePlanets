@@ -10,8 +10,25 @@
 <body>
 <h1>Pick a planet:</h1>
     <ol>
-        <li th:each="planet : ${planets}" th:text="${planet}"></li>
+        <li th:each="planet : ${planets}" th:text="${planet.name}"></li>
     </ol>
-<p th:text="${planets}">test</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Earth days in one year</th>
+        <th scope="col">Number of Moons</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="planet : ${planets}">
+            <th scope="row" th:text="${planet.name}"></th>
+            <td th:text="${planet.yearLength}"></td>
+            <td th:text="${planet.moons}"></td>
+        <tr>
+    </tbody>
+</table>
+
 </body>
 </html>
